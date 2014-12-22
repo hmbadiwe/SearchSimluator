@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://affProject.generated.domain.tools.att.com" targetNamespace="http://affProject.generated.domain.tools.att.com" elementFormDefault="qualified">
+
+    <xs:element name="getAffProjectRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="projectID" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getAffProjectResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="projectEntry" type="tns:projectStore"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+  <xs:complexType name="projectStore">
+    <xs:sequence>
+      <xs:element name="action" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:string" minOccurs="0"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="planID" type="xs:string" minOccurs="0"/>
+      <xs:element name="plannedCompletionDate" type="xs:string" minOccurs="0"/>
+      <xs:element name="plannedStartDate" type="xs:string" minOccurs="0"/>
+      <xs:element name="priority" type="xs:string" minOccurs="0"/>
+      <xs:element name="projectID" type="xs:string" minOccurs="0"/>
+      <xs:element name="startDate" type="xs:string" minOccurs="0"/>
+      <xs:element name="status" type="xs:string" minOccurs="0"/>
+      <xs:element name="type" type="xs:string" minOccurs="0"/>
+      <xs:element name="characterstics" type="tns:characterstics" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="characterstics">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="value" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
