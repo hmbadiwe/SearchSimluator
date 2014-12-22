@@ -9,13 +9,15 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
+import java.util.List;
+
 
 @Component
 public class ProjectEntityRepository
 {
 
 
-    public ProjectStore findProjectByProjectId(String projectID){
+    public List<ProjectStore> findProjectsByProjectId(String projectID){
 
         Assert.notNull(projectID);
 
@@ -23,9 +25,11 @@ public class ProjectEntityRepository
         MongoOperations mongoOperations = (MongoOperations)ctx.getBean("mongoTemplate");
 
 
-        Query searchIdQuery = new Query(Criteria.where("projectID").is(projectID));
+        Query searchIdQuery = new Query(Criteria.where("projectID").regex(projectID));
         System.out.println("Query looks like: " + searchIdQuery.toString());
-        ProjectStore result = mongoOperations.findOne(searchIdQuery, ProjectStore.class);
+        List<ProjectStore> result = mongoOperations.find(searchIdQuery, ProjectStore.class);
         return result;
     }
+
+
 }

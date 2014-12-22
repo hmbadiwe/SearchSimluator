@@ -12,10 +12,12 @@
     <xs:element name="getAffProjectResponse">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="projectEntry" type="tns:projectStore"/>
+                <xs:element name="projectEntry" type="tns:projectStore" minOccurs="1" maxOccurs="unbounded" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+
 
   <xs:complexType name="projectStore">
     <xs:sequence>
